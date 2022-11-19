@@ -4,8 +4,7 @@ ENV LANG C.UTF-8
 
 ARG PYTHON_VERSION=3.11.0
 ARG PIP_NO_CACHE_DIR=1
-# COPY Python-3.11.0.tgz /usr/src/python/
-ARG LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/
+#ARG LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/
 
 #RUN dnf upgrade -y \
 RUN set -eux \
