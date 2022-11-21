@@ -3,7 +3,7 @@ FROM rockylinux:8.6
 ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.utf8
 
-ARG PYTHON_VERSION=3.11.0
+ARG PYTHON_VERSION
 ARG PIP_NO_CACHE_DIR=1
 #ARG LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/
 
@@ -12,10 +12,10 @@ RUN set -eux \
     && set -o pipefail \
     && export __PYTHON_VERSION__="${PYTHON_VERSION}" \
     && export __PYTHON_BIN__="python${__PYTHON_VERSION__%.*}" \
+    && dnf upgrade -y \
     && dnf install -y \
       bzip2-devel \
       ca-certificates \
-      epel-release \
       expat-devel \
       findutils \
       gcc \
@@ -72,9 +72,11 @@ RUN set -eux \
           readline-devel \
           sqlite-devel \
           tk-devel \
+          tzdata \
           wget \
+          which \
           xz \
-          xz-devel \
+          xz-devel \ 
     && set +o pipefail \
     && find /usr/local -type f -executable -not \( -name '*tkinter*' \) -exec ldd '{}' ';' \
         | grep -vi "not found" \
