@@ -61,13 +61,17 @@ RUN set -eux \
     && dnf mark remove \
           bzip2-devel \
           expat-devel \
+          findutils \
+          gcc \
           gdbm-devel \
           libffi-devel \
           libuuid-devel \
+          make \
           openssl-devel \
           readline-devel \
           sqlite-devel \
           tk-devel \
+          wget \
           xz \
           xz-devel \
     && set +o pipefail \
