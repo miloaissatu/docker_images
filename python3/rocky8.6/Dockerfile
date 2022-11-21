@@ -72,7 +72,6 @@ RUN set -eux \
           readline-devel \
           sqlite-devel \
           tk-devel \
-          tzdata \
           wget \
           which \
           xz \
